@@ -12,11 +12,14 @@ class Board extends React.Component {
   }
 
   renderBoard() {
+    // Lấy kích cỡ của ma trận bằng props gửi từ Game qua
+    // Tạo rows là một Array để tiện sử dụng hàm map()
     const rowsWidth = Array(Math.sqrt(this.props.squares.length)).fill(null);
     const celsWidth = rowsWidth;
     const board = rowsWidth.map((row, i) => {
       const squares = celsWidth.map((cel, j) => {
         const squareIndex = i * rowsWidth.length + j;
+        // Chúng ta đang sử dụng vòng lặp trong reactJS nên phải có key cho mỗi phần tử
         return(
           <span
             key={squareIndex}
